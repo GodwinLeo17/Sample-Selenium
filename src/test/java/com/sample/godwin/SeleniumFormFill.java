@@ -60,9 +60,9 @@ public class SeleniumFormFill {
             datalist.sendKeys("Cheese");
 
             // 9. File upload (points to a file on your local machine)
-            WebElement fileInput = driver.findElement(By.id("my-file"));
-            String pathToFile = Paths.get("path", "to", "your", "upload.txt").toAbsolutePath().toString();
-            fileInput.sendKeys(pathToFile);
+            /*WebElement fileInput = driver.findElement(By.name("my-file"));
+            String pathToFile = Paths.get("E:\\Godwin George\\Resume", "upload.txt").toAbsolutePath().toString();
+            fileInput.sendKeys(pathToFile);*/
 
             // 10. Checkbox — check the second one if not already checked
             WebElement defaultCheckbox = driver.findElement(By.id("my-check-2"));

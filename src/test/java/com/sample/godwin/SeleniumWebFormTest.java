@@ -25,9 +25,10 @@ public class SeleniumWebFormTest {
     }
 
     @Test(description = "Fill out the Selenium.dev web form and submit")
-    public void testFillWebForm() {
+    public void testFillWebForm() throws InterruptedException {
         // 1. Go to the form page
         driver.get("https://selenium.dev/selenium/web/web-form.html");
+        Thread.sleep (5000);
 
         // 2. Text input
         WebElement textInput = driver.findElement(By.id("my-text-id"));
@@ -41,6 +42,7 @@ public class SeleniumWebFormTest {
         // 4. Textarea
         WebElement textarea = driver.findElement(By.name("my-textarea"));
         textarea.sendKeys("This is a sample comment.\nLine two of comment.");
+        Thread.sleep (5000);
 
         // 5. (Disabled input is not interactable—just assert it’s disabled)
         WebElement disabled = driver.findElement(By.name("my-disabled"));
@@ -75,7 +77,7 @@ public class SeleniumWebFormTest {
 
         // 12. Color picker — send hex
         WebElement color = driver.findElement(By.name("my-colors"));
-        color.sendKeys("#336699");
+        color.sendKeys("#563d7c");
 
         // 13. Date picker — send yyyy-mm-dd
         WebElement date = driver.findElement(By.name("my-date"));
@@ -83,15 +85,17 @@ public class SeleniumWebFormTest {
 
         // 14. Range slider — send a number in range
         WebElement range = driver.findElement(By.name("my-range"));
-        range.sendKeys("7");
+        range.sendKeys("10");
+
 
         // 15. Submit
         WebElement submit = driver.findElement(By.cssSelector("body > main > div > form > div > div:nth-child(2) > button"));
         submit.click();
 
+
         // 16. Verify we’re on the acknowledgement page
         String currentUrl = driver.getCurrentUrl();
-
+        Thread.sleep (7000);
         Assert.assertTrue(
                 driver.getPageSource().contains("Form submitted"),
                 "Page should show a submission acknowledgement."
